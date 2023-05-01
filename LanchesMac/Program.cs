@@ -1,4 +1,6 @@
 using LanchesMac.Context;
+using LanchesMac.Repositories;
+using LanchesMac.Repositories.Interfaces;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +10,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("defaultConnection")));
+
+//adiciona o serviço de ICategoriaRepository
+
+builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+
+//adiciona o serviço de ILancheRepository
+
+builder.Services.AddTransient<ILancheRepository, LancheRepository>();
+
 
 var app = builder.Build();
 

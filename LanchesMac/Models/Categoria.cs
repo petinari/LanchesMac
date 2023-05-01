@@ -10,7 +10,7 @@ namespace LanchesMac.Models
         public Guid CategotiaId { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório" )]
-        [StringLength(100, ErrorMessage = "O tamanho máximo é de 100 caracteres")]
+        [StringLength(100, ErrorMessage = "O tamanho máximo é de 100 caracteres.")]
         [Display(Name = "Nome da Categoria")]
         public string CategoriaNome { get; set; }
         [Required(ErrorMessage = "O campo é obrigatório")]
