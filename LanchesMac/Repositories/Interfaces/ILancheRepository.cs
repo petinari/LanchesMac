@@ -1,4 +1,6 @@
-﻿namespace LanchesMac.Repositories.Interfaces
+﻿using LanchesMac.Models;
+
+namespace LanchesMac.Repositories.Interfaces
 {
     public interface ILancheRepository
     {

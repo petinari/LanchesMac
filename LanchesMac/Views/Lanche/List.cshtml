@@ -1,0 +1,23 @@
+﻿@using LanchesMac.ViewModels;
+@model LancheListViewModel
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">@Model.CategoriaAtual</h2>
+            <hr />
+        </div>
+
+    @foreach (var lanche in Model.Lanches)
+    {
+        <div class="col-md-3">
+            <div class="card-deck">
+                <div class="card border-info mb-3 ">
+                    <h3>@lanche.Nome</h3>
+                    <img class="card-img-top" src="@lanche.ImagemUrl" alt="Card image cap">
+                    <p>@lanche.DescricaoCurta</p>
+                    <h3>@lanche.Preco.ToString("C")</h3>
+                </div>
+            </div>
+        </div>  
+    }
