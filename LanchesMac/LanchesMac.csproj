@@ -22,18 +22,25 @@
   <ItemGroup>
     <Compile Remove="Controllers\Lanche.cs" />
     <Compile Remove="Pages\**" />
+    <Compile Remove="Views\Index.cshtml.cs" />
+    <Compile Remove="Controllers\asd.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\Lanche\List.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\CarrinhoCompra\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Lanche.cshtml" />
+    <Content Include="Pages\CarrinhoCompra\Index.cshtml" />
+    <Content Remove="Pages\**" />
+    <Content Remove="Views\Index.cshtml" />
+    <Content Remove="Controllers\asd.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="Pages\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="Pages\**" />
   </ItemGroup>
 
   <ItemGroup>

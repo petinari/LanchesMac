@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace LanchesMac.Views.CarrinhoCompra;
+namespace LanchesMac.Controllers;
 
-public class Index : PageModel
+public class asd : PageModel
 {
     public void OnGet()
     {
