@@ -3,9 +3,14 @@
 
 <div class="col">
     <div class="card ">
-        <h3>@Model.Nome</h3>
+        <a asp-controller="Lanche" asp-action="Details" asp-route-id="@Model.LancheId"
+           class="card-title">
+            @Model.Nome
+        </a>
         <img class="card-img-top vh-50" src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" alt="Card image cap">
         <p>@Model.DescricaoCurta</p>
+        <p>@Model.Categoria.CategoriaNome</p>
+
         <h3>@Model.Preco.ToString("C")</h3>
     </div>
 </div>

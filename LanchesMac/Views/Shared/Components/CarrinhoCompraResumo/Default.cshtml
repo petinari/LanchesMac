@@ -1,0 +1,11 @@
+﻿@model LanchesMac.ViewModels.CarrinhoCompraViewModel
+
+@if (Model.CarrinhoCompra.CarrinhoCompraItens.Count > 0)
+{
+    <a asp-controller="CarrinhoCompra" asp-action="Index">
+
+        <span class="glyphicon glyphicon-search " style="color: white">
+            Meu Carrinho (@Model.CarrinhoCompra.CarrinhoCompraItens.Sum(c => c.Quantidade))
+        </span>
+    </a>
+}

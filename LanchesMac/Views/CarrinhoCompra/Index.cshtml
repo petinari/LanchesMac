@@ -1,5 +1,4 @@
-﻿@using LanchesMac.ViewModels;
-@model CarrinhoCompraViewModel
+﻿@model LanchesMac.ViewModels.CarrinhoCompraViewModel
 
 <div class="container">
     <div class="row">
@@ -10,93 +9,65 @@
         </div>
         <table class="table table-bordered table-striped">
             <thead>
-                <tr>
-                    <th>
-                        Quantidade
-                    </th>
-                    <th>
-                        Lanche
-                    </th>
-                    <th class="text-right">
-                    <th class="text-right">
-                    <th class="text-right">
-                        Preço
-                    </th>
-                    <th class="text-right">
-                        Total
-                    </th>
-                    <th>
+            <tr>
+                <th>
+                    Quantidade
+                </th>
+                <th>
+                    Lanche
+                </th>
+                <th class="text-right">
+                <th class="text-right">
+                <th class="text-right">
+                    Preço
+                </th>
+                <th class="text-right">
+                    Total
+                </th>
+                <th>
 
-                    </th>
-                </tr>
+                </th>
+            </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.CarrinhoCompra.CarrinhoCompraItens)
-                {
-                    <tr>
-                        <td>
-                            @item.Quantidade
-                        </td>
-                    </tr>
-                }
+            @foreach (var item in Model.CarrinhoCompra.CarrinhoCompraItens)
+            {
+                <tr>
+                    <td class="text-center">
+                        @item.Quantidade
+                    </td>
+                    <td class="text-left">
+                        @item.Lanche.Nome
+                    </td>
+                    <td class="text-right">
+                        @item.Lanche.Preco.ToString("C")
+                    </td>
+                    <td class="text-right">
+                        @(item.Quantidade * item.Lanche.Preco).ToString("C")
+                    </td>
+                    <td class="text-center">
+                        <a asp-controller="CarrinhoCompra" asp-action="RemoverItemCarrinhoDeCompra" asp-route-id="@item.Lanche.LancheId">Remover</a>
+                    </td>
+                </tr>
+            }
             </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">
+                    Total:
+                </td>
+                <td class="text-right">
+                    @Model.CarrinhoCompraTotal.ToString("C")
+                </td>
+            </tr>
+            </tfoot>
         </table>
-    </div>
-</div>@using LanchesMac.ViewModels;
-@model CarrinhoCompraViewModel
-
-<div class="container">
-    <div class="row">
-        <div>
-            <h4>
-                Seu Carrinho de Compras
-            </h4>
+        <div class="text-right">
+            <div class="btn-group">
+                <a class="btn btn-success" asp-controller="Pedido" asp-action="CheckOut">Encerrar Pedido.</a>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <a class="btn btn-primary" asp-controller="Lanche" asp-action="List">Continuar Comprando</a>
+            </div>
         </div>
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>
-                        Quantidade
-                    </th>
-                    <th>
-                        Lanche
-                    </th>
-                    <th class="text-right">
-                    <th class="text-right">
-                    <th class="text-right">
-                        Preço
-                    </th>
-                    <th class="text-right">
-                        Total
-                    </th>
-                    <th>
-
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.CarrinhoCompra.CarrinhoCompraItens)
-                {
-                    <tr>
-                        <td>
-                            @item.Quantidade
-                        </td>
-                        <td>
-                            @item.Lanche.Nome
-                        </td>
-                        <td>
-                            @item.Lanche.Preco.ToString("C")
-                        </td>
-                        <td>
-                            @(item.Quantidade * item.Lanche.Preco).ToString("C")
-                        </td>
-                        <td>
-                            <a asp-controller="CarrinhoCompra" asp-action="RemoverItem" asp-route-id="@item.Lanche.LancheId">Remover</a>
-                        </td>
-                    </tr>
-
-                }
-            </tbody>
-        </table>
     </div>
 </div>

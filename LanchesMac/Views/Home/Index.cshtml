@@ -1,6 +1,14 @@
-﻿
-<h1>
-    Index
-</h1>
+﻿@model LanchesMac.ViewModels.HomeViewModel
 
 <partial name="_Carousel"/>
+
+<h2 class="pt-3">Os preferidos da semana....</h2>
+
+<div class="row pt-3">
+    @foreach (var lanche in Model.LanchesPreferidos)
+    {
+        <partial name="_LanchesResumo" for="@lanche"/>
+    }
+</div>
+
+<i class="bi bi-0-circle"></i>

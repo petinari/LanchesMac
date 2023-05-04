@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LanchesMac.Controllers;
 
+[Route("CarrinhoCompra")]
 public class CarrinhoCompraController : Controller
 {
     private readonly CarrinhoCompra _carrinhoCompra;
@@ -32,13 +33,14 @@ public class CarrinhoCompraController : Controller
     }
 
     // adiciona um item ao carrinho
+    [Route("AdicionarItemNoCarrinhoCompra/{lancheId}")]
     public RedirectToActionResult AdicionarItemNoCarrinhoCompra(string lancheId)
     {
         var lancheSelecionado = _lancheRepository.Lanches.FirstOrDefault(p => p.LancheId == new Guid(lancheId));
 
         if (lancheSelecionado != null) _carrinhoCompra.AdicionarAoCarrinho(lancheSelecionado);
 
-        return RedirectToAction("Index");
+        return RedirectToAction("Index", "Home");
     }
 
     // remove um item do carrinho
